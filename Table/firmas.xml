@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table>
+    <column>
+        <name>codfirma</name>
+        <type>serial</type>
+        <null>NO</null>
+    </column>
+    <column>
+        <name>coddocument</name>
+        <type>integer</type>
+        <null>NO</null>
+    </column>
+    <constraint>
+        <name>codfirma_pkey</name>
+        <type>PRIMARY KEY (codfirma)</type>
+    </constraint>
+</table>
