@@ -8,7 +8,7 @@ class EditAlbaranCliente
     public function createViews(): Closure
     {
         return function() {
-            $this->addHtmlView('Firma', 'firma', 'Firma', 'firma','fas fa-code-branch');
+            $this->addHtmlView('Firma', 'firma', 'Firma', 'firma','fas fa-signature');
         };
     }
 }
