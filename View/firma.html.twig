@@ -1,62 +1,80 @@
 <form method="post">
-    <div class="card-body">
-        <div class="form-row">
-            <div class="col-sm">
-                {{ i18n.trans('name') }}
-                <div class="form-group">
-                    <input type="text" name="nombre" value="{{ fsc.model.name }}"
-                            class="form-control" required=""/>
+    <div id="formHeader">
+        <div class="container-fluid">
+            <div class="form-row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        Nombre
+                        <input type="text" class="form-control" required/>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm">
-                {{ i18n.trans('dni') }}
-                <div class="form-group">
-                    <input type="text" name="dni" value="{{ fsc.model.dni }}"
-                            class="form-control" required=""/>
+                <div class="col-md-3 col-lg-3">
+                    <div class="form-group">
+                        DNI
+                        <input type="text" class="form-control" required/>
+                    </div>
+                </div>
+                <div class="col-sm col-md-3 col-lg-3">
+                    <div class="form-group">
+                        Fecha
+                        <input type="date" name="fecha" required class="form-control"/>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md col-lg">
+                    <div class="form-group">
+                        Usuario de entrega
+                        <input type="text" name="usuario_entrega" required class="form-control"/>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="form-row">
-            <div class="col-sm">
-                {{ i18n.trans('firma') }}
-                <div class="form-group">
-                    <canvas id="pizarra"></canvas>
+    </div>
+    <div id="formBody">
+        <div class="container-fluid mt-3">
+            <div class="form-row">
+                <div class="col-sm">
+                    <canvas id="canvas"></canvas>
+                    <p id="limpiar">Limpiar</p>
                 </div>
             </div>
         </div>
-        <div class="form-row">
-            <div class="col-auto">
-                <button type="button" class="btn btn-danger mb-3" data-toggle="modal" data-target="#deleteDocModal">
-                    <i class="fas fa-trash-alt fa-fw"></i>
-                    Eliminar
-                </button>
-                <div class="modal fade" id="deleteDocModal" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title"></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <i class="fas fa-trash-alt fa-3x"></i>
-                                <h5 class="mt-3 mb-1">¿Realmente desea eliminar esto?</h5>
-                                <p class="mb-0">Esto no se puede deshacer. ¿Está seguro que desea continuar?</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-danger" onclick="return salesFormSave('delete-doc', '0');">Eliminar</button>
+    </div>
+    <div id="formFooter">
+        <div class="container-fluid mt-3">
+            <div class="form-row">
+                <div class="col-auto">
+                    <button type="button" class="btn btn-danger mb-3" data-toggle="modal" data-target="#deleteDocModal">
+                        <i class="fas fa-trash-alt fa-fw" aria-hidden="true"></i>
+                        Eliminar
+                    </button>
+                    <div class="modal fade" id="deleteDocModal" tabindex="-1" style="display: none;" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title"></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <i class="fas fa-trash-alt fa-3x"></i>
+                                    <h5 class="mt-3 mb-1">¿Realmente desea eliminar esto?</h5>
+                                    <p class="mb-0">Esto no se puede deshacer. ¿Está seguro que desea continuar?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-danger" onclick="return salesFormSave('delete-doc', '0');">Eliminar</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col text-right">
-                <button type="button" class="btn btn-primary btn-spin-action" load-after="true" onclick="return salesFormSave('save-doc', '0');">
-                    <i class="fas fa-save fa-fw"></i>
-                    Guardar
-                </button>
+                <div class="col text-right">
+                    <button type="button" class="btn btn-primary btn-spin-action" load-after="true" onclick="return salesFormSave('save-doc', '0');">
+                        <i class="fas fa-save fa-fw"></i>
+                        Guardar
+                    </button>
+                </div>
             </div>
         </div>
     </div>
