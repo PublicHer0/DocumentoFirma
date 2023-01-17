@@ -1,21 +1,63 @@
-<div class="card-body">
-                        <h5 class="card-title">
-                            <i class="far fa-file"></i> Nuevo
-                        </h5>
-                        <div class="form-group">
-                            <textarea name="observations" class="form-control" placeholder="Observaciones"></textarea>
-                        </div>
-                        <div class="form-row align-items-end">
-                            <div class="col">
-                                <input type="file" name="new-file" class="form-control-file" required="">
-                                <p class="text-muted mb-0">
-                                    Este servidor admite un tamaño máximo de 99 MB.
-                                </p>
-                            </div>
-                            <div class="col text-right">
-                                <button type="submit" class="btn btn-sm btn-success">
-                                    <i class="fas fa-save fa-fw" aria-hidden="true"></i> Guardar
+<form method="post">
+    <div class="card-body">
+        <div class="form-row">
+            <div class="col-sm">
+                {{ i18n.trans('name') }}
+                <div class="form-group">
+                    <input type="text" name="nombre" value="{{ fsc.model.name }}"
+                            class="form-control" required=""/>
+                </div>
+            </div>
+            <div class="col-sm">
+                {{ i18n.trans('dni') }}
+                <div class="form-group">
+                    <input type="text" name="dni" value="{{ fsc.model.dni }}"
+                            class="form-control" required=""/>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-sm">
+                {{ i18n.trans('firma') }}
+                <div class="form-group">
+                    <canvas id="pizarra"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-auto">
+                <button type="button" class="btn btn-danger mb-3" data-toggle="modal" data-target="#deleteDocModal">
+                    <i class="fas fa-trash-alt fa-fw"></i>
+                    Eliminar
+                </button>
+                <div class="modal fade" id="deleteDocModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
                                 </button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <i class="fas fa-trash-alt fa-3x"></i>
+                                <h5 class="mt-3 mb-1">¿Realmente desea eliminar esto?</h5>
+                                <p class="mb-0">Esto no se puede deshacer. ¿Está seguro que desea continuar?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-danger" onclick="return salesFormSave('delete-doc', '0');">Eliminar</button>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="col text-right">
+                <button type="button" class="btn btn-primary btn-spin-action" load-after="true" onclick="return salesFormSave('save-doc', '0');">
+                    <i class="fas fa-save fa-fw"></i>
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
