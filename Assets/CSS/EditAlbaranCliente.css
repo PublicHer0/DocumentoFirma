@@ -1,0 +1,14 @@
+canvas {
+    display: block;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#limpiar {
+    margin-top: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
