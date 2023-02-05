@@ -1,3 +1,5 @@
+{% set data = fsc.getFirmaData() %}
+
 <form method="post">
     <div id="formHeader">
         <div class="container-fluid">
@@ -17,13 +19,19 @@
                 <div class="col-sm col-md-3 col-lg-3">
                     <div class="form-group">
                         Fecha
-                        <input type="date" name="fecha" required class="form-control"/>
+                        <input type="date" name="fecha" class="form-control" disabled value="{{ data['date'] }}"/>
+                    </div>
+                </div>
+                <div class="col-sm col-md-3 col-lg-3">
+                    <div class="form-group">
+                        Hora
+                        <input type="time" name="fecha" class="form-control" disabled value="{{ data['time'] }}"/>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md col-lg">
                     <div class="form-group">
                         Usuario de entrega
-                        <input type="text" name="usuario_entrega" required class="form-control"/>
+                        <input type="text" name="usuario_entrega" class="form-control" disabled value="{{ data['user'] }}"/>
                     </div>
                 </div>
             </div>
