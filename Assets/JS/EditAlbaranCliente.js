@@ -26,6 +26,43 @@ $(document).ready(function () {
             puntos.length = 0;
         }, false);
 
+        // limpiar.addEventListener('click', clearCanvas, false);
+        // //eventos universales
+        // if ('ontouchstart' in document.documentElement) {
+        //     canvas.addEventListener('touchstart', function (evt) {
+        //         dibujar = true;
+        //         puntos.length = 0;
+        //         ctx.beginPath();
+        //     }, false);
+        //     canvas.addEventListener('touchend', function (evt) {
+        //         redibujarTrazados();
+        //     }, false);
+        //     canvas.addEventListener("touchmove", function (evt) {
+        //         if (dibujar) {
+        //             var m = oMousePos(canvas, evt);
+        //             puntos.push(m);
+        //             ctx.lineTo(m.x, m.y);
+        //             ctx.stroke();
+        //         }
+        //     }, false);
+        // } else {
+        //     canvas.addEventListener('mousedown', function (evt) {
+        //         dibujar = true;
+        //         puntos.length = 0;
+        //         ctx.beginPath();
+        //     }, false);
+        //     canvas.addEventListener('mouseup', function (evt) {
+        //         redibujarTrazados();
+        //     }, false);
+        //     canvas.addEventListener("mousemove", function (evt) {
+        //         if (dibujar) {
+        //             var m = oMousePos(canvas, evt);
+        //             puntos.push(m);
+        //             ctx.lineTo(m.x, m.y);
+        //             ctx.stroke();
+        //         }
+        //     }, false);
+        // }
 
         canvas.addEventListener('mousedown', function (evt) {
             dibujar = true;
